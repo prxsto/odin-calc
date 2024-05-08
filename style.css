@@ -18,6 +18,8 @@ body {
   height: 1000px;
   margin: 0;
   padding: 0;
+  box-shadow: 4px 4px 4px var(--button-util);
+  overflow: hidden;
 }
 
 #container {
@@ -26,6 +28,8 @@ body {
   flex-wrap: wrap;
   align-items: stretch;
   align-content: stretch;
+  height: 1000px;
+  width: 600px;
 }
 
 #display {
@@ -33,7 +37,7 @@ body {
   margin: 16px;
 }
 
-#display h1 {
+h1 {
   font-family: monospace;
   font-weight: normal;
   text-align: right;
@@ -52,14 +56,18 @@ body {
 }
 
 .button {
-  flex: 5 1 150px;
-  background-color: lightgray;
+  flex: 5 1 24%;
+  box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
 }
 
-.button.wide {
-  flex-basis: 300px;
+#clear {
+  flex: 5 1 300px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  background-color: var(--button-util);
 }
 
 .button.util {
@@ -70,11 +78,20 @@ body {
   background-color: var(--button-num);
 }
 
+#zero {
+  flex: 5 1 300px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  background-color: var(--button-num);
+}
+
 .button.op {
   background-color: var(--button-op);
 }
-.button h2 {
+h2 {
   font-family: monospace;
   font-weight: bold;
   color: #e7e7e7;
+  font-size: 36px;
 }
