@@ -5,9 +5,9 @@ const divideItems = (a, b) => {
   return (a / b).toFixed(6);
 };
 
-const firstNum = Number(prompt("Enter first number"));
-const operator = prompt("Enter operator");
-const secondNum = Number(prompt("Enter second number"));
+// const firstNum = Number(prompt("Enter first number"));
+// const operator = prompt("Enter operator");
+// const secondNum = Number(prompt("Enter second number"));
 
 const operate = (operator, firstNum, secondNum) => {
   let result;
@@ -30,4 +30,4 @@ const operate = (operator, firstNum, secondNum) => {
   return result;
 };
 
-console.log(operate(operator, firstNum, secondNum));
+// console.log(operate(operator, firstNum, secondNum));

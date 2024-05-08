@@ -1,0 +1,80 @@
+:root {
+  --background: #2a2626;
+  --button-util: #4d453f;
+  --button-num: #736b65;
+  --button-op: #fe9f06;
+}
+
+body {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#calculator {
+  border-radius: 30px;
+  background-color: var(--background);
+  width: 600px;
+  height: 1000px;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+#display {
+  flex: 1 1 200px;
+  margin: 16px;
+}
+
+#display h1 {
+  font-family: monospace;
+  font-weight: normal;
+  text-align: right;
+  color: #e7e7e7;
+  font-size: 72px;
+}
+#button-container {
+  display: flex;
+  gap: 2px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+  flex-wrap: wrap;
+  flex: 5 1 auto;
+}
+
+.button {
+  flex: 5 1 150px;
+  background-color: lightgray;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.button.wide {
+  flex-basis: 300px;
+}
+
+.button.util {
+  background-color: var(--button-util);
+}
+
+.button.num {
+  background-color: var(--button-num);
+}
+
+.button.op {
+  background-color: var(--button-op);
+}
+.button h2 {
+  font-family: monospace;
+  font-weight: bold;
+  color: #e7e7e7;
+}
