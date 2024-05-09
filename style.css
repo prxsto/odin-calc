@@ -12,13 +12,13 @@ body {
 }
 
 #calculator {
-  border-radius: 30px;
+  border-radius: 20px;
+  border: 2px solid var(--background);
   background-color: var(--background);
   width: 600px;
   height: 1000px;
   margin: 0;
   padding: 0;
-  box-shadow: 4px 4px 4px var(--button-util);
   overflow: hidden;
 }
 
@@ -33,20 +33,27 @@ body {
 }
 
 #display {
+  display: flex;
+  justify-content: end;
+  align-items: end;
   flex: 1 1 200px;
   margin: 16px;
+  padding: 0px;
 }
 
 h1 {
   font-family: monospace;
   font-weight: normal;
-  text-align: right;
   color: #e7e7e7;
-  font-size: 72px;
+  font-size: 124px;
+  margin-right: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 #button-container {
   display: flex;
-  gap: 2px;
+  margin: -8px;
+  /* gap: 2px; */
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
@@ -56,18 +63,26 @@ h1 {
 }
 
 .button {
-  flex: 5 1 24%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 5 1 25%;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
+  border: 2px solid var(--background);
 }
 
 #clear {
-  flex: 5 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 10 1 50%;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   background-color: var(--button-util);
+  border: 2px solid var(--background);
 }
 
 .button.util {
@@ -79,11 +94,15 @@ h1 {
 }
 
 #zero {
-  flex: 5 1 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 10 1 50%;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   background-color: var(--button-num);
+  border: 2px solid var(--background);
 }
 
 .button.op {
@@ -93,5 +112,6 @@ h2 {
   font-family: monospace;
   font-weight: bold;
   color: #e7e7e7;
-  font-size: 36px;
+  font-size: 48px;
+  text-align: center;
 }
