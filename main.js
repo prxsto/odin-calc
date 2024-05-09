@@ -1,5 +1,5 @@
 // get ui elements
-const resultDisplay = document.getElementsByTagName("h1");
+const resultDisplay = document.getElementById("result");
 const clearButton = document.getElementById("clear");
 const deleteButton = document.getElementById("delete");
 const divideButton = document.getElementById("divide");
@@ -20,12 +20,23 @@ const eightButton = document.getElementById("eight");
 const nineButton = document.getElementById("nine");
 
 let inputArray = [];
+let result = "";
+let calculated = false;
 
 const addItems = (a, b) => a + b;
 const subtractItems = (a, b) => a - b;
 const multiplyItems = (a, b) => a * b;
 const divideItems = (a, b) => {
-  return (a / b).toFixed(6);
+  if (b === 0) {
+    return "Error - cannot divide by zero";
+  } else {
+    let result = a / b;
+    if (Number.isInteger(result)) {
+      return Math.round(result);
+    } else {
+      return (a / b).toFixed(6);
+    }
+  }
 };
 
 const operate = (operator, firstNum, secondNum) => {
@@ -45,9 +56,6 @@ const operate = (operator, firstNum, secondNum) => {
       result = multiplyItems(firstNum, secondNum);
       break;
     case "/":
-      if (secondNum === 0) {
-        return "Error - cannot divide by zero, dingus.";
-      }
       result = divideItems(firstNum, secondNum);
       break;
     default:
@@ -56,16 +64,15 @@ const operate = (operator, firstNum, secondNum) => {
   return result;
 };
 
-const updateDisplay = () => {
-  const ints = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
-  if (inputArray[-1] !== )
-  resultDisplay.innerText = 
+const updateDisplay = (value) => {
+  resultDisplay.innerText = value;
+  console.log("display updated");
 };
 
 clearButton.addEventListener("click", () => {
   inputArray = [];
   console.log(inputArray);
-  display.innerText = "0";
+  updateDisplay("0");
 });
 
 deleteButton.addEventListener("click", () => {
@@ -77,41 +84,135 @@ deleteButton.addEventListener("click", () => {
 });
 
 addButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    calculated = false;
+  }
   inputArray.push(" + ");
-  console.log(inputArray);
-  return inputArray;
+  updateDisplay(inputArray.join(""));
 });
-subtractButton.addEventListener("click", (input) => input.push(" - "));
-multiplyButton.addEventListener("click", (input) => input.push(" * "));
-divideButton.addEventListener("click", (input) => input.push(" / "));
+
+subtractButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    calculated = false;
+  }
+  inputArray.push(" - ");
+  updateDisplay(inputArray.join(""));
+});
+
+multiplyButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    calculated = false;
+  }
+  inputArray.push(" * ");
+  updateDisplay(inputArray.join(""));
+});
+
+divideButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    calculated = false;
+  }
+  inputArray.push(" / ");
+  updateDisplay(inputArray.join(""));
+});
 
 zeroButton.addEventListener("click", () => {
-  return inputArray.push("0");
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("0");
+  updateDisplay(inputArray.join(""));
 });
 
 oneButton.addEventListener("click", () => {
-  return inputArray.push("1");
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("1");
+  updateDisplay(inputArray.join(""));
 });
 
 twoButton.addEventListener("click", () => {
-  return inputArray.push("2");
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("2");
+  updateDisplay(inputArray.join(""));
 });
 
-threeButton.addEventListener("click", () => input.push("3"));
-fourButton.addEventListener("click", () => input.push("4"));
-fiveButton.addEventListener("click", () => input.push("5"));
-sixButton.addEventListener("click", () => input.push("6"));
-sevenButton.addEventListener("click", () => input.push("7"));
-eightButton.addEventListener("click", () => input.push("8"));
-nineButton.addEventListener("click", () => input.push("9"));
+threeButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("3");
+  updateDisplay(inputArray.join(""));
+});
+
+fourButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("4");
+  updateDisplay(inputArray.join(""));
+});
+
+fiveButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("5");
+  updateDisplay(inputArray.join(""));
+});
+
+sixButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("6");
+  updateDisplay(inputArray.join(""));
+});
+
+sevenButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("7");
+  updateDisplay(inputArray.join(""));
+});
+
+eightButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("8");
+  updateDisplay(inputArray.join(""));
+});
+
+nineButton.addEventListener("click", () => {
+  if (result !== "" && calculated === true) {
+    inputArray = [];
+    calculated = false;
+  }
+  inputArray.push("9");
+  updateDisplay(inputArray.join(""));
+});
 
 equalsButton.addEventListener("click", () => {
-  console.log(inputArray.join(""));
   let [firstNum, operator, secondNum] = inputArray.join("").split(" ");
   operator = operator.trim();
   firstNum = firstNum.trim();
   secondNum = secondNum.trim();
-  const result = operate(operator, firstNum, secondNum);
+  result = operate(operator, firstNum, secondNum);
   console.log(result);
-  display.innerText = result;
+  updateDisplay(result);
+  inputArray = [`${result}`];
+  calculated = true;
 });
