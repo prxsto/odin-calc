@@ -34,7 +34,7 @@ const divideItems = (a, b) => {
     if (Number.isInteger(result)) {
       return Math.round(result);
     } else {
-      return (a / b).toFixed(6);
+      return parseFloat((a / b).toFixed(4));
     }
   }
 };
@@ -76,11 +76,18 @@ clearButton.addEventListener("click", () => {
 });
 
 deleteButton.addEventListener("click", () => {
-  const operatorList = [" ", "+", "-", "*", "/"];
-  for (let i = 0; i < operatorList.length; i++) {
-    if (inputArray[-1] !== operatorList[i]) inputArray.pop();
+  // const operatorList = [" ", "+", "-", "*", "/"];
+  if (inputArray[-1] !== " ") {
+    inputArray.pop();
   }
-  console.log(inputArray);
+  updateDisplay(inputArray.join(""));
+});
+
+decimalButton.addEventListener("click", () => {
+  if (inputArray[-1] !== " " && !inputArray.includes(".")) {
+    inputArray.push(".");
+    updateDisplay(inputArray.join(""));
+  }
 });
 
 addButton.addEventListener("click", () => {
